@@ -1,18 +1,13 @@
 package pl.games.lotto;
 
-import java.io.BufferedReader;
-import java.io.Console;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
 
 
 public class UserNumbers {
-    private static final int MIN_VALUE = 1;
-    public static Scanner scanner;
-
+    public static final int MIN_VALUE = 1;
+    private final Scanner scanner = new Scanner(System.in);
 
     public Set<Integer> getNumbersFromUser() {
         Set<Integer> userNumbers = new HashSet<>();
