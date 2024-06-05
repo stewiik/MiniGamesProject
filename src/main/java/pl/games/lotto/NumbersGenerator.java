@@ -6,8 +6,8 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class NumbersGenerator {
-    private static final int MAX_VALUE = 99;
-    private static final int NUM_OF_NUMBERS = 6;
+    public static final int MAX_VALUE = 99;
+    public static final int NUM_OF_NUMBERS = 6;
     private final SecureRandom GENERATOR = new SecureRandom();
 
     Set<Integer> generateNumber() {
