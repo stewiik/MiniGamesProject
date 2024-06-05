@@ -1,16 +1,14 @@
 package pl.games.lotto;
 
+import lombok.Data;
 import pl.games.PlayGame;
 import java.util.Set;
+
+@Data
 
 public class LottoGame implements PlayGame {
     private final NumbersGenerator numbersGenerator;
     private final UserNumbers userNumbers;
-
-    public LottoGame(NumbersGenerator numbersGenerator, UserNumbers userNumbers) {
-        this.numbersGenerator = numbersGenerator;
-        this.userNumbers = userNumbers;
-    }
 
     @Override
     public void play() {

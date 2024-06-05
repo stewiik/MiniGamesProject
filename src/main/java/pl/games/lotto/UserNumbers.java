@@ -1,17 +1,22 @@
 package pl.games.lotto;
 
+import lombok.Data;
+
 import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
 
-
+@Data
 public class UserNumbers {
     public static final int MIN_VALUE = 1;
-    private final Scanner scanner = new Scanner(System.in);
+    public static final int MAX_VALUE = 99;
+    public static final int NUM_OF_NUMBERS = 6;
+    private final Scanner scanner;
+
 
     public Set<Integer> getNumbersFromUser() {
         Set<Integer> userNumbers = new HashSet<>();
-        while (userNumbers.size() < NumbersGenerator.NUM_OF_NUMBERS) {
+        while (userNumbers.size() < NUM_OF_NUMBERS) {
             System.out.println("Give a number:");
             try {
                 int userNumber = Integer.parseInt(scanner.nextLine());
@@ -24,7 +29,7 @@ public class UserNumbers {
     }
 
     private void validateInputNumber(int inputNumber, Set<Integer> inputNumbers) {
-        if (inputNumber < MIN_VALUE || inputNumber > NumbersGenerator.MAX_VALUE) {
+        if (inputNumber < MIN_VALUE || inputNumber > MAX_VALUE) {
             System.err.println("Number out of range. Enter a number between 1-99");
         } else if (!inputNumbers.add(inputNumber)) {
             System.err.println("Repeated number. Enter another number.");
