@@ -12,7 +12,7 @@ public class NumbersGenerator {
     private final SecureRandom GENERATOR = new SecureRandom();
 
     Set<Integer> generateNumber() {
-        return IntStream.generate(() -> GENERATOR.nextInt(MAX_VALUE + 1))
+        return IntStream.generate(() -> GENERATOR.nextInt(MAX_VALUE) + 1)
                 .distinct()
                 .limit(NUM_OF_NUMBERS)
                 .boxed()

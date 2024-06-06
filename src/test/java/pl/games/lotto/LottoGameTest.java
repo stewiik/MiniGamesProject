@@ -3,8 +3,6 @@ package pl.games.lotto;
 import java.util.Scanner;
 import java.util.Set;
 import java.util.stream.Stream;
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
