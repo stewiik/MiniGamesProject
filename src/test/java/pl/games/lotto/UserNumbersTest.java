@@ -61,7 +61,7 @@ class UserNumbersTest {
     @Test
     void should_return_numbers_in_set_when_one_is_string() {
         // given
-        Set<Integer> expectedNumbers = Set.of(1,2,3,4,5,6);
+        Set<Integer> expectedNumbers = Set.of(1, 2, 3, 4, 5, 6);
         String numbersFromUser = "1 2 abc 2 3 4 5 6";
         Scanner scanner = mockScannerIn(numbersFromUser);
         // when
@@ -73,7 +73,7 @@ class UserNumbersTest {
     @Test
     void should_skip_repeated_numbers() {
         // given
-        Set<Integer> expectedNumbers = Set.of(1,2,3,4,5,6);
+        Set<Integer> expectedNumbers = Set.of(1, 2, 3, 4, 5, 6);
         String numbersFromUser = "1 1 2 3 4 5 6";
         Scanner scanner = mockScannerIn(numbersFromUser);
         // when
@@ -85,7 +85,7 @@ class UserNumbersTest {
     @Test
     void should_return_only_six_numbers_when_more_given() {
         // given
-        Set<Integer> expectedNumbers = Set.of(1,2,3,4,5,6);
+        Set<Integer> expectedNumbers = Set.of(1, 2, 3, 4, 5, 6);
         String numbersFromUser = "1 2 3 4 5 6 7 8";
         Scanner scanner = mockScannerIn(numbersFromUser);
         // when

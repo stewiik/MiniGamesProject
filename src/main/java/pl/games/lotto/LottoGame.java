@@ -1,37 +1,35 @@
 package pl.games.lotto;
 
 import lombok.Data;
-import pl.games.PlayGame;
 
+import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
+import java.util.StringJoiner;
 
 
 @Data
 
-public class LottoGame implements PlayGame {
+public class LottoGame {
     private final NumbersGenerator numbersGenerator;
     private final UserNumbers userNumbers;
-    private final Scanner scanner = new Scanner(System.in);
 
-    @Override
-    public void play() {
-        System.out.println("Welcome to the Lotto Game!");
-        System.out.println("Write 6 different numbers between 1-99");
+    public String play(Scanner scanner) {
+        StringBuilder result = new StringBuilder();
+        result.append("Welcome to the Lotto Game!\n");
+        result.append("Write 6 different numbers between 1-99\n");
         Set<Integer> inputNumbers = userNumbers.getNumbersFromUser(scanner);
-        System.out.println("Your numbers: " + inputNumbers);
+        result.append("Your numbers: ").append(inputNumbers).append("\n");
         Set<Integer> winNumbers = numbersGenerator.generateNumber();
-        System.out.println("Winning numbers: " + winNumbers);
-        checkIfWin(inputNumbers, winNumbers);
+        result.append("Winning numbers: ").append(winNumbers).append("\n");
+        String message = checkIfWin(new HashSet<>(inputNumbers), new HashSet<>(winNumbers));
+        result.append(message).append("\n");
+        return result.toString();
     }
 
-    private void checkIfWin(Set<Integer> userNumbers, Set<Integer> winNumbers) {
+    private String checkIfWin(Set<Integer> userNumbers, Set<Integer> winNumbers) {
         userNumbers.retainAll(winNumbers);
-        printMessage(userNumbers);
-    }
-
-    private void printMessage(Set<Integer> guessedNumbers) {
-        System.out.println(generateMessage(guessedNumbers));
+        return generateMessage(userNumbers);
     }
 
     private String generateMessage(Set<Integer> guessedNumbers) {
