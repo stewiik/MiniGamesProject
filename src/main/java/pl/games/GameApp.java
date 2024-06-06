@@ -8,8 +8,7 @@ import java.util.Scanner;
 
 public class GameApp {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        LottoGame lottoGame = new LottoGame(new NumbersGenerator(), new UserNumbers(scanner));
+        LottoGame lottoGame = new LottoGame(new NumbersGenerator(), new UserNumbers());
         lottoGame.play();
     }
 }

@@ -2,20 +2,24 @@ package pl.games.lotto;
 
 import lombok.Data;
 import pl.games.PlayGame;
+
+import java.util.Scanner;
 import java.util.Set;
+
 
 @Data
 
 public class LottoGame implements PlayGame {
     private final NumbersGenerator numbersGenerator;
     private final UserNumbers userNumbers;
+    private final Scanner scanner = new Scanner(System.in);
 
     @Override
     public void play() {
         System.out.println("Welcome to the Lotto Game!");
         System.out.println("Write 6 different numbers between 1-99");
-        Set<Integer> inputNumbers = userNumbers.getNumbersFromUser();
-        System.out.println("Your numbers: " + userNumbers);
+        Set<Integer> inputNumbers = userNumbers.getNumbersFromUser(scanner);
+        System.out.println("Your numbers: " + inputNumbers);
         Set<Integer> winNumbers = numbersGenerator.generateNumber();
         System.out.println("Winning numbers: " + winNumbers);
         checkIfWin(inputNumbers, winNumbers);
