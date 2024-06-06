@@ -1,28 +1,27 @@
 package pl.games.lotto;
 
-import lombok.Data;
-
 import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
 
-@Data
+import static pl.games.lotto.AppConstants.*;
+
 public class UserNumbers {
-    public static final int MIN_VALUE = 1;
-    public static final int MAX_VALUE = 99;
-    public static final int NUM_OF_NUMBERS = 6;
-    private final Scanner scanner;
 
-
-    public Set<Integer> getNumbersFromUser() {
+    public Set<Integer> getNumbersFromUser(Scanner scanner) {
         Set<Integer> userNumbers = new HashSet<>();
         while (userNumbers.size() < NUM_OF_NUMBERS) {
             System.out.println("Give a number:");
-            try {
-                int userNumber = Integer.parseInt(scanner.nextLine());
-                validateInputNumber(userNumber, userNumbers);
-            } catch (NumberFormatException e) {
-                System.err.println("Incorrect value. Enter a number between 1-99.");
+            if (scanner.hasNextLine()) {
+                try {
+                    int userNumber = Integer.parseInt(scanner.nextLine());
+                    validateInputNumber(userNumber, userNumbers);
+                } catch (NumberFormatException e) {
+                    System.err.println("Incorrect value. Enter a number between 1-99.");
+                }
+            } else {
+                System.err.println("No more input available.");
+                break;
             }
         }
         return userNumbers;
