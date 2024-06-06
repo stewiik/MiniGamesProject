@@ -12,9 +12,9 @@ public class UserNumbers {
         Set<Integer> userNumbers = new HashSet<>();
         while (userNumbers.size() < NUM_OF_NUMBERS) {
             System.out.println("Give a number:");
-            if (scanner.hasNextLine()) {
+            if (scanner.hasNext()) {
                 try {
-                    int userNumber = Integer.parseInt(scanner.nextLine());
+                    int userNumber = Integer.parseInt(scanner.next().trim());
                     validateInputNumber(userNumber, userNumbers);
                 } catch (NumberFormatException e) {
                     System.err.println("Incorrect value. Enter a number between 1-99.");
